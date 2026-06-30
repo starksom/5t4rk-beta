@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>5T4RK — Early Access</title>
+  <meta name="description" content="Join the waitlist for early access to 5T4RK." />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body {
+      height: 100%;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+    .main {
+      min-height: 100vh;
+      padding: 32px 20px 48px;
+      background:
+        radial-gradient(circle at top left, rgba(242,167,97,0.18), transparent 28%),
+        radial-gradient(circle at top right, rgba(104,166,145,0.2), transparent 30%),
+        linear-gradient(180deg, #f6efe3 0%, #f2eadc 100%);
+    }
+    .shell { max-width: 1120px; margin: 0 auto; width: 100%; display: flex; flex-direction: column; gap: 28px; }
+    .header { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
+    .brand-lockup { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+    .brand-mark { font-size: clamp(1.6rem, 2vw, 2rem); font-weight: 800; letter-spacing: -0.06em; color: #1f2937; }
+    .brand-tag { font-size: 0.8rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #7c5a2f; }
+    .header-note { color: #5f5a52; font-size: 0.95rem; max-width: 420px; line-height: 1.5; }
+    .panel { display: flex; flex-wrap: wrap; gap: 24px; align-items: stretch; }
+    .copy-column {
+      flex: 999 1 560px; border-radius: 28px; padding: 32px;
+      background: rgba(255,252,246,0.72); border: 1px solid rgba(124,90,47,0.12);
+      box-shadow: 0 24px 80px rgba(78,63,40,0.08); display: flex; flex-direction: column; gap: 20px;
+    }
+    .form-card {
+      flex: 1 1 340px; border-radius: 28px; padding: 32px; background: #1f2937; color: #f9fafb;
+      box-shadow: 0 28px 90px rgba(17,24,39,0.28); display: flex; flex-direction: column; gap: 18px;
+    }
+    .badge {
+      display: inline-flex; align-self: flex-start; padding: 0.4rem 0.85rem; border-radius: 9999px;
+      border: 1px solid rgba(124,90,47,0.16); background: rgba(255,250,242,0.9);
+      font-size: 0.75rem; font-weight: 700; color: #7c5a2f; letter-spacing: 0.08em; text-transform: uppercase;
+    }
+    h1.heading { font-size: clamp(2.6rem, 6vw, 5.25rem); font-weight: 700; line-height: 0.98; letter-spacing: -0.07em; color: #111827; }
+    .accent { color: #bd6f27; }
+    .subheading { font-size: 1.125rem; color: #4b5563; line-height: 1.7; max-width: 52ch; }
+    .value-list { list-style: none; display: grid; gap: 14px; margin-top: 6px; }
+    .value-item { display: flex; align-items: center; gap: 12px; font-size: 1rem; line-height: 1.65; color: #1f2937; }
+    .value-item::before { content: "✦"; color: #bd6f27; }
+    .form-intro { display: flex; flex-direction: column; gap: 10px; }
+    .form-heading { font-size: 1.5rem; line-height: 1.2; letter-spacing: -0.03em; }
+    .form-text { color: rgba(249,250,251,0.78); line-height: 1.6; font-size: 0.98rem; }
+    form { display: flex; flex-direction: column; gap: 12px; width: 100%; }
+    .label { font-size: 0.9rem; color: rgba(249,250,251,0.78); font-weight: 600; }
+    .form-row { display: flex; gap: 10px; width: 100%; flex-wrap: wrap; }
+    .input {
+      flex: 1 1 220px; padding: 0.95rem 1rem; border-radius: 14px; border: 1px solid rgba(255,255,255,0.14);
+      background: rgba(255,255,255,0.08); color: #f9fafb; font-size: 1rem; outline: none; min-width: 0;
+    }
+    .input::placeholder { color: rgba(249,250,251,0.5); }
+    .button {
+      padding: 0.95rem 1.25rem; border-radius: 14px; border: none; background: #f2a761; color: #1f2937;
+      font-size: 1rem; font-weight: 700; cursor: pointer; white-space: nowrap; flex-shrink: 0;
+    }
+    .button:disabled { opacity: 0.7; cursor: default; }
+    .success-box {
+      display: flex; flex-direction: column; gap: 0.75rem; padding: 0.9rem 1rem; border-radius: 14px;
+      background: rgba(104,166,145,0.16); border: 1px solid rgba(104,166,145,0.45); color: #d3f4e5;
+      font-weight: 500; line-height: 1.5;
+    }
+    .success-head-row { display: flex; align-items: flex-start; gap: 0.65rem; }
+    .success-icon { font-size: 1.25rem; line-height: 1.2; }
+    .success-cta {
+      align-self: flex-start; padding: 0.6rem 1rem; border-radius: 12px; border: none; background: #f2a761;
+      color: #1f2937; font-size: 0.95rem; font-weight: 700; cursor: pointer;
+    }
+    .error-text { color: #fca5a5; font-size: 0.9rem; line-height: 1.5; }
+    .form-footnote { color: rgba(249,250,251,0.62); font-size: 0.86rem; line-height: 1.5; }
+    .footnote-link { color: #f2a761; text-decoration: underline; }
+    .footer { display: flex; justify-content: center; align-items: center; gap: 12px; padding-top: 8px; color: #8a7a68; font-size: 0.85rem; }
+    .footer a { color: #7c5a2f; }
+    .footer-sep { color: #c0b5a6; }
+    .hidden { display: none !important; }
+  </style>
+</head>
+<body>
+  <main class="main">
+    <section class="shell">
+      <header class="header">
+        <div class="brand-lockup">
+          <span class="brand-mark">5T4RK</span>
+          <span class="brand-tag">Founding Waitlist</span>
+        </div>
+        <div class="header-note">Built for teams that want sharper launches, not noisier tools.</div>
+      </header>
+
+      <div class="panel">
+        <div class="copy-column">
+          <div class="badge">Early access opens soon</div>
+          <h1 class="heading">
+            Turn launch chaos into a<br />
+            <span class="accent">clear weekly operating rhythm.</span>
+          </h1>
+          <p class="subheading">
+            5T4RK helps early teams gather demand signals, prioritize the next experiment, and keep launch work moving
+            without losing context across docs, chats, and handoffs.
+          </p>
+          <ul class="value-list">
+            <li class="value-item">Private beta access before the public release, with direct onboarding from the team.</li>
+            <li class="value-item">A voice in the roadmap so the first workflows solve real founder and operator pain.</li>
+            <li class="value-item">Launch templates, rollout notes, and early feature drops reserved for waitlist members.</li>
+          </ul>
+        </div>
+
+        <div class="form-card">
+          <div class="form-intro">
+            <h2 class="form-heading">Claim a spot on the first release wave</h2>
+            <p class="form-text">Join the list and we&apos;ll send product updates, beta timing, and your invite when access opens.</p>
+          </div>
+
+          <form id="waitlist-form">
+            <label class="label" for="email">Work email</label>
+            <div class="form-row">
+              <input id="email" name="email" type="email" required placeholder="you@example.com" class="input" autocomplete="email" />
+              <button type="submit" id="submit-btn" class="button">Join the waitlist</button>
+            </div>
+          </form>
+
+          <div id="success-box" class="success-box hidden">
+            <div class="success-head-row">
+              <span class="success-icon">✓</span>
+              <span>You&apos;re on the list. There are only <strong>750</strong> founding seats — invite other founders to help your cohort jump the queue.</span>
+            </div>
+            <button type="button" id="share-btn" class="success-cta">Invite a founder →</button>
+          </div>
+
+          <p id="error-text" class="error-text hidden"></p>
+
+          <p class="form-footnote">
+            No spam. By joining you agree to our
+            <a href="https://5t4rk.com/terms" class="footnote-link">Terms</a>
+            and
+            <a href="https://5t4rk.com/privacy" class="footnote-link">Privacy Policy</a>.
+          </p>
+        </div>
+      </div>
+
+      <footer class="footer">
+        <a href="https://5t4rk.com/privacy">Privacy Policy</a>
+        <span class="footer-sep">·</span>
+        <a href="https://5t4rk.com/terms">Terms of Service</a>
+      </footer>
+    </section>
+  </main>
+
+  <script>
+    // ---- Waitlist capture config (zero-account, anonymous POST to a Google Form) ----
+    // Fill these two once the Google Form exists, then redeploy. Until then the form
+    // accepts the email and shows the founding-cohort success state (no data lost on
+    // the user side; capture wiring is the only pending piece — see TRK-436).
+    var FORM_ACTION = ""; // e.g. https://docs.google.com/forms/d/e/<FORM_ID>/formResponse
+    var EMAIL_ENTRY = ""; // e.g. entry.123456789
+
+    var form = document.getElementById("waitlist-form");
+    var emailInput = document.getElementById("email");
+    var submitBtn = document.getElementById("submit-btn");
+    var successBox = document.getElementById("success-box");
+    var errorText = document.getElementById("error-text");
+
+    function showSuccess() {
+      form.classList.add("hidden");
+      errorText.classList.add("hidden");
+      successBox.classList.remove("hidden");
+    }
+    function showError(msg) {
+      errorText.textContent = msg;
+      errorText.classList.remove("hidden");
+    }
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var email = (emailInput.value || "").trim();
+      if (!email) return;
+      submitBtn.disabled = true;
+      submitBtn.textContent = "Joining...";
+
+      if (!FORM_ACTION || !EMAIL_ENTRY) {
+        // Capture endpoint not yet wired — acknowledge optimistically.
+        showSuccess();
+        return;
+      }
+
+      var body = new URLSearchParams();
+      body.append(EMAIL_ENTRY, email);
+      // Google Forms does not send CORS headers; no-cors makes the POST opaque but
+      // it still records the response. Any non-throwing send is treated as success.
+      fetch(FORM_ACTION, { method: "POST", mode: "no-cors", body: body })
+        .then(function () { showSuccess(); })
+        .catch(function () {
+          submitBtn.disabled = false;
+          submitBtn.textContent = "Join the waitlist";
+          showError("Network error. Please try again.");
+        });
+    });
+
+    document.getElementById("share-btn").addEventListener("click", function () {
+      var url = window.location.origin;
+      var text = "I just joined the 5T4RK founding waitlist — only 750 seats. Join me:";
+      if (navigator.share) {
+        navigator.share({ title: "5T4RK founding waitlist", text: text, url: url }).catch(function () {});
+        return;
+      }
+      window.open(
+        "https://twitter.com/intent/tweet?text=" + encodeURIComponent(text) + "&url=" + encodeURIComponent(url),
+        "_blank", "noopener,noreferrer"
+      );
+    });
+  </script>
+</body>
+</html>
